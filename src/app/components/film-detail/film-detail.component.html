@@ -1,0 +1,23 @@
+<p class="text-center">Ahora te muestro información relevante sobre los filmes, demuestra a tus amigos que tanto sabes de Star Wars!</p>
+<div class="container mt-4 bg-dark text-white p-6 rounded shadow">
+    <h2 class="text-success fw-bold text-warning fs-2">{{ film?.title }}</h2>
+    <p class="fw-light fs-5"><strong>Director:</strong> {{ film?.director }}</p>
+    <p class="fw-light fs-5"><strong>Episodio:</strong> {{ film?.episode_id }}</p>
+    <p class="fw-light fs-5"><strong>Año de lanzamiento:</strong> {{ film?.release_date }}</p>
+  
+    <h3 class="fw-bold fs-3 text-warning">Personajes</h3>
+    <ul class="list-group bg-dark text-white p-6 rounded shadow ">
+      <li *ngFor="let personaje of personajes" class="fw-bold list-group-item">{{ personaje.name }}</li>
+    </ul>
+  
+    <h3 class="fw-bold fs-3 text-warning">Planetas</h3>
+    <ul class="list-group bg-dark text-white p-6 rounded shadow">
+      <li *ngFor="let planeta of planetas" class="fw-bold list-group-item">{{ planeta.name }}</li>
+    </ul>
+  
+    <h3 class="fw-bold fs-3 text-warning">Naves</h3>
+    <ul class="list-group bg-dark text-white p-6 rounded shadow">
+      <li *ngFor="let nave of naves" class="fw-bold list-group-item">{{ nave.name }}</li>
+    </ul>
+  </div>
+  

@@ -1,0 +1,36 @@
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Formulario</h2>
+  <form [formGroup]="formulario" (ngSubmit)="enviar()" class="w-50 mx-auto">
+    <div class="fw-light form-group center mb-4">
+      <p for="nombre"><strong>Nombre</strong></p>
+      <input type="text" id="nombre" formControlName="nombre" class="fw-light form-control" placeholder="Nombre">
+      <div *ngIf="nombre?.touched && nombre?.hasError('required')" class="text-danger">
+        El nombre es requerido.
+      </div>
+      <div *ngIf="nombre?.touched && nombre?.hasError('pattern')" class="text-danger">
+        El nombre solo debe contener letras.
+      </div>
+    </div>
+    <div class="fw-light form-group center mb-4">
+      <p for="apellido"><strong>Apellido</strong></p>
+      <input type="text" id="apellido" formControlName="apellido" class="fw-light form-control" placeholder="Apellido">
+      <div *ngIf="apellido?.touched && apellido?.hasError('required')" class="text-danger">
+        El apellido es requerido.
+      </div>
+      <div *ngIf="apellido?.touched && apellido?.hasError('pattern')" class="text-danger">
+        El apellido solo debe contener letras.
+      </div>
+    </div>
+    <div class="fw-light form-group center mb-4">
+      <p for="fechaNacimiento"><strong>Fecha de Nacimiento</strong></p>
+      <input type="date" id="fechaNacimiento" formControlName="fechaNacimiento" class="fw-light form-control" >
+      <div *ngIf="fechaNacimiento?.touched && fechaNacimiento?.hasError('required')" class="text-danger">
+        La fecha de nacimiento es requerida.
+      </div>
+      <div *ngIf="fechaNacimiento?.touched && fechaNacimiento?.hasError('menorDeEdad')" class="text-danger">
+        Debes ser mayor de edad.
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary w-100 fw-light" [disabled]="formulario.invalid">Enviar</button>
+  </form>
+</div>
